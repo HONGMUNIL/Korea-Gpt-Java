@@ -25,6 +25,10 @@ public class D_While {
             if(number ==20)break;
         }
 
+        do{
+            System.out.println(num);
+            num++;
 
+        }while (num<=5);
     }
 }

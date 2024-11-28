@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class A_if {
     public static void main(String[] args) {
+
         int age = 10;
 
         if (age > 10) {
