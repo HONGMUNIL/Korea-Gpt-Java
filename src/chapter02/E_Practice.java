@@ -50,7 +50,7 @@ public class E_Practice {
             System.out.println();
         }
 
-
+*/
         int rows = 5;
 
         for(int i=1; i<=rows; i++){
@@ -62,8 +62,8 @@ public class E_Practice {
             }
            System.out.println();
         }
-
-
+        System.out.println("===================");
+ /*
         Scanner sc2 = new Scanner(System.in);
         int number;
         do {
@@ -74,7 +74,7 @@ public class E_Practice {
             System.out.print("입력 숫자는 :" + number);
             sc2.close();
         */
-         int rows = 6;
+          rows = 6;
 
         for(int i=1; i<=rows; i++){
             for(int j=1; j <=rows - i; j++){
@@ -88,7 +88,7 @@ public class E_Practice {
 
 
         for(int i=1; i<=rows; i++){
-            for(int j=1; j<=i; j++){
+            for(int j=1; j<i; j++){
                 System.out.print(" ");
             }
             for(int k=1; k <=rows - i; k++){
