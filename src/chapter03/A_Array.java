@@ -109,11 +109,12 @@ public class A_Array {
         * 배열의 모든 요소에 순차적으로 접근하는 코드
         * }
         * */
-
+        System.out.println("+===================================================");
         int[] arrayNumber= {1,3,5,7,9};
         for(int number : arrayNumber){
-            System.out.println(number);
+            System.out.print(number + " ");
         }
+        System.out.println();
         //배열 활용 예시
         //학생 점수 평균 계산
         int[] scores = {85, 100, 75, 60, 90};
