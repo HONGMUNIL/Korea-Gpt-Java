@@ -12,7 +12,7 @@ class Book {
     // 클래스 내부의 동작(행동, 메서드)
     void displayInfo() {
         System.out.println(title + " - " + publisher);
-        return;
+       // return;
         // System.out.println("안녕하세요"); - 오류 (해당 코드는 읽히지 않음)
     }
 
