@@ -36,13 +36,19 @@ class  CarClass{
     //해당 클래스로 생성되는 모든 객체가 동일한 값을 가짐
     //데이터 타입 앞에 static 키워드 사용
     static int tireNumber = 4;
-    static int doorNumber;
+    static int doorNumber=10;
 
     //2.지역 변수
     void accelerate(int increment){
         //increment : 지역 변수
         //메서드 내부에서만 유효
         speed+= increment;
+    }
+}
+
+class BikeClass {
+    void tire(){
+        System.out.println(CarClass.tireNumber); //static 변수는 걍 다쓸수있느 (클래스명.클래스변수이름)하면
     }
 }
 public class Object05 {
@@ -63,9 +69,13 @@ public class Object05 {
         car1.brand = "kia";
         car1.color = "brand";
 
-        //car1.doorNumber =5;
-        //System.out.println(car2.doorNumber);
+        car1.doorNumber =5;
+        System.out.println(car2.doorNumber);
 
+        System.out.println("===========");
+
+        BikeClass bikeClass = new BikeClass();
+        bikeClass.tire();
 
 
 
