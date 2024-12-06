@@ -60,7 +60,7 @@ public class Book extends Item {
     }
     @Override
     public void display(){
-        System.out.println("ID" + getId() + " , Name: "+ getName() + " , ISBN: "+ isbn);
+        System.out.println(" ID: " + getId() + " , Name: "+ getName() + " , ISBN: "+ isbn);
     }
 
 }
