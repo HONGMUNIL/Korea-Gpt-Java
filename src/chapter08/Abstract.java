@@ -110,7 +110,9 @@ class Cat extends Animal {
     void makeSound() {
         System.out.println("야옹");
     }
+
 }
+
 
 
 public class Abstract {
