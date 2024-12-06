@@ -36,7 +36,7 @@ public class LibraryManager implements Manageable{
         List<Item>foundItems = new ArrayList<>();
 
         for(Item item : items){
-            if(item.getName().contains(keyword)   || (item instanceof Book && ((Book)item).getAuthor().contains(keyword) &&  (item instanceof Book && ((Book)item).getPublisher().contains(keyword)))){
+            if(item.getName().contains(keyword)   || (item instanceof Book && ((Book)item).getAuthor().contains(keyword) ||  (item instanceof Book && ((Book)item).getPublisher().contains(keyword)))){
                 foundItems.add(item);
 
             }
