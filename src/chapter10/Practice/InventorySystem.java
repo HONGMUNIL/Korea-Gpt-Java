@@ -59,7 +59,6 @@ public class InventorySystem {
 
                         manager.add(new Book(id, title, isbn, author, publisher, year, price, stock, category));
                         //new Book() 요부분 업캐스팅이라함
-
                         break;
 
 
