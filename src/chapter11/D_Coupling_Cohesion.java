@@ -59,7 +59,7 @@ class OrderClass {
     // 1-2) 의존성 주입 (Dependency Injection)
     // : 클래스가 직접 객체를 생성하지 않고, 외부에서 객체를 주입받도록 설계
     // - 객체 간의 강한 결합을 줄이고, 변경에 유연
-    CreditCardPayment creditCardPayment = new CreditCardPayment();
+    CreditCardPayment creditCardPayment = new CreditCardPayment(); //이거 하면안댐
 
     private Payment payment;
 
