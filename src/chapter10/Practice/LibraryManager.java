@@ -44,7 +44,7 @@ public class LibraryManager implements Manageable{
         if(foundItems.isEmpty()){
             //배열.isEmpty(): 비워진 경우 true 반환
             throw new NoSuchElementException("No item found for keyword: "+ keyword);
-        }
+        } //이부분은 없어도 실행은 되지만 프론트엔드와 백엔드 사이 서로의 검증을 위해 쓴다. 만약에만약
         return foundItems;
 
     }
