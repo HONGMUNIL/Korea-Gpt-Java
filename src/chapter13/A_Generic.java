@@ -58,6 +58,7 @@ public class A_Generic {
 
         System.out.println(pair.getKey()); // 123
         System.out.println(pair2.getKey()); // "안녕하세요"
+        System.out.println(pair2.getValue()); //123
 
         Pair.<String>print("안녕");
         Pair.<Integer>print(123);
