@@ -39,6 +39,8 @@ package chapter14;
  * */
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -53,9 +55,14 @@ public class E_Lambda {
         Predicate<Integer> isPositive = n -> n > 0;
 
 
+
+
         //기본 조건 검사
         System.out.println(isEven.test(4)); //true
         System.out.println(isEven.test(5)); //false
+
+
+
 
         //조건 결합 위의 조건 2로나눈 나머지가 0이면서 양수이면 true
         Predicate<Integer> isEvenAndPositive = isEven.and(isPositive);
@@ -63,8 +70,13 @@ public class E_Lambda {
         System.out.println(isEvenAndPositive.test(-4)); //false
         System.out.println(isEvenAndPositive.test(5)); //false
 
-        // ===Function ====//
 
+
+
+
+
+
+        // ===Function ====//
         //Type parameters:
         //<T> – the type of the input to the function
         //<R> – the type of the result of the function
@@ -75,19 +87,39 @@ public class E_Lambda {
         Function<String, Integer> lengthAndSquare = stringLength.andThen(square);
         System.out.println(lengthAndSquare.apply("Hello")); //25
 
+
+
+
         //=======Consumer=========//
         Consumer<String> printMessage = msg -> System.out.println(msg);
         Consumer<String> printLength = msg -> System.out.println(msg.length());
 
         printMessage.accept("안녕하냐");
-        Consumer<String > combinedConsumer = printMessage.andThen(printLength);
+        Consumer<String> combinedConsumer = printMessage.andThen(printLength);
         combinedConsumer.accept("안녕하냐고");
+
+
+
+
 
 
         //=====supplier=====//
         Supplier<Double> randomValue = () -> Math.random(); // 09.0과 0.1의 난수
         System.out.println(randomValue.get()); //0.91076442121831
 
+
+
+
+
+
+
+        //====Map 활용 람다식 ===//
+        Map<String, Integer> scores = new HashMap<>();
+        scores.put("홍문일", 51);
+        scores.put("집에가", 90);
+        scores.put("고싶다", 100);
+
+        scores.forEach((name, score) -> System.out.println(name + " : " + score));
 
 
     }
