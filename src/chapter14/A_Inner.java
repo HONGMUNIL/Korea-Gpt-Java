@@ -39,12 +39,23 @@ class OuterClass {
     private String outerField = "외부 클래스의 필드";
     static String staticField = "외부 클래스의 정적 필드";
 
+
+
+
+
     //1. (비정적 ) 내부 클래스 - 인스턴스 필드, 인스턴스 멤버처럼 사용
     class InnerClass {
         void didplay() {
             System.out.println("외부 클래스 필드에 접근" + outerField);
         }
     }
+
+
+
+
+
+
+
 
     //2. 정적 내부 클래스
     static class StaticClass {
@@ -56,6 +67,11 @@ class OuterClass {
             System.out.println("외부 클래스의 정적 필드에 접근 :" + staticField);
         }
     }
+
+
+
+
+
 
     //3. 메서드 내부클래스(지역 클래스)
     void outerMethod() {
@@ -82,11 +98,27 @@ class OuterClass {
 
 }
 
+
+
+
+
+
 //추상 클래스 : 하나 이상의 추상 메서드를 포함
 //CF) 추상 메서드: 구현부{} 가 없는 메서드
 abstract class AbstractClass{
     abstract void display();
 }
+
+
+
+
+
+//인터페이스
+interface Greeting {
+    void sayHello();
+}
+
+
 
 
 
@@ -147,6 +179,19 @@ public class A_Inner {
         abstractClass2.display();// 두번쨰 익명 내부 클래스
 
         System.out.println(abstractClass1 == abstractClass2); //false
+
+
+
+        //인터페이스 사용 익명 클래스
+        System.out.println(" ========인터페[이스 사용 익명 클래스========");
+        Greeting greeting = new Greeting() {
+            @Override
+            public void sayHello() {
+                System.out.println("안녕하세요! 인타페이스 익명 클래스다");
+            }
+        };
+        greeting.sayHello(); //안녕하세요! 인타페이스 익명 클래스다
+
 
 
 
