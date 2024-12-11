@@ -6,7 +6,7 @@ public class Student {
     private String studentId;
 
 
-    public Student(String name, int age, String studentId){
+    public Student(String name, int age, String studentId) {
         this.name = name;
         this.age = age;
         this.studentId = studentId;
@@ -36,12 +36,9 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public String toString(){
+    public String toString() {
         return "Name : " + name + "Age : " + age + "StudentId : " + studentId;
     }
-
-
-
 
 
 }
