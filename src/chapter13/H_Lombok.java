@@ -137,8 +137,7 @@ public class H_Lombok {
 
         //static 클래스이기 떄문에 '클래스명.내부클래스()' 이렇게 호출해야함
         LombokClass lombokClass3 = LombokClass.builder().title("이승아").build();
-
-        System.out.println(lombokClass3.getAuthor()); //작가 미상
+        System.out.println(lombokClass3.getAuthor()); //null
 
         //@NonNull 어노테이션 필드는 반드시 생성 시 값의 할당이 이루어져야함!
         LombokClass lombokClass4 = LombokClass.builder().title("이도경").author("루피").build();
