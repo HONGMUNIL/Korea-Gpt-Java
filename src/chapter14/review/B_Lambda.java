@@ -11,6 +11,7 @@ package chapter14.review;
  * 2. 예시
  * 1) 매개변수, 반환값이 모두없는 람다
  *  () -> System.out.println("Hello,Lambda!");
+ *
  * 2) 매개변수가 하나인 람다
  * x -> x*x;
  *
@@ -35,31 +36,75 @@ package chapter14.review;
  * */
 
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class B_Lambda {
     public static void main(String[] args) {
-        //리스트 vs 배열
-        //1. Array
-        // : 여러 데이터를 하나의 Object(객체)로 관리하기 위한 자료 구조
-        // : 0부터 시작하는 저장 순서를 가지며 해당 Index 번호를 통해 데이터를 접근
-        // : 연속된 메모리 공간에 저장
-        // - 배열은 정의와 동시에 길이를 지정해야하고 길이를 바꿀 수 없다
+        //1. (int x, int y) -> x + y;
+        //2. () ->System.out.println("Hello,Lambda");
+        //3. (String s) -> {
+        //      System.out.println("Hello,Lambda");
+        //      return s.length();
+        // } 1,2,3번 다 가능
 
-        //2. List
-        // : 순서가 있는 element(요소)의 모임
-        // : ArrayList, LinkedList 등이 존재
-        // : Array의 Index 번호가 데이터의 식별자 역할
-        //      vs List의 index 번호는 데이터의 저장 위치만 확인하는 의미
-        // : 불연속적 메모리 공간을 차지
-        // : Array와 달리 동적, 배열의 크기가 정해져있지 않음
+        //======람다식 사용 예시======//
+        //주로 @FunctionalInterface(하나의 추상 메서드만 가지는 인터페이스)와 함께 사용
+        List<String> list = Arrays.asList("apple", "orange", "banana");
 
-        //===================
-        //List.of() 메서드
-        // : 읽기 전용(불변) 리스트를 생성하는 데 사용
-        // - 수정 불가(추가, 수정, 변경) null값을 포함할 수 X
-        List<String> immutable = List.of("사과", "바나나", "체리");
+        //.sort() : List를 정렬하는 메서드
+        //a.compareTo(b): a와 b 두개의 값을 비교하여 같은 경우 O
+        // +)포함되어 있을경우
+        //      오름차순 정렬 : 양수 ,, 내림차순 정렬: 음수
+        list.sort((a, b) -> a.compareTo(b));
+        System.out.println(list); //[apple, banana, orange]
 
+        //==함수형 인터페이스 ==//
+        // 1) Predicate<T> : boolean test(T t)
+        // - 주어진 조건을 테스트
+        // 2) Function<T, R> : R apply(T t)
+        // - 입력값을 다른 타입으로 변환
+        // 3) Consumer<T> : void accept(T t)
+        // - 입력값을 소비
+        // 4) Supplier<T> : T get()
+        // - 값을 반환
+
+        Function<String, Integer> fx = s -> s.length();
+        Function<String, String> fx2 = s -> s.toUpperCase();
+
+        Integer result = fx.apply("abcde"); //5
+        System.out.println(result);
+
+        String result2 = fx2.apply("abcde");
+        System.out.println(result2); //ABCDE
+
+        Function<String, Integer> fx3 = s -> Integer.parseInt(s);
+        Integer fx3Result = fx3.apply("10");
+        System.out.println(fx3Result); //10
+
+        Integer data = fx3
+                .andThen(d -> d + 100)
+                .apply("10");
+
+        System.out.println(data); //110
+
+        Predicate<Integer> event = n -> n% 2 ==0;
+        System.out.println(10); //true
+        System.out.println(11); //false
+
+
+        // ==  메서드 참조 ===//
+        // : 함수형 인터페이스를 간결하게 표현
+        // - :: 연산자를 사용하여 기존 메서드를 참조
+        List<String> names = Arrays.asList("홍문일", "박정아", "김지우");
+        // 일반 람다식
+        System.out.println("====일반 람다식====");
+        names.forEach(name -> System.out.println(name));
+        //메서드 참조
+        System.out.println("===메서드 참조===");
+        names.forEach(System.out::println);
 
 
     }
