@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService {
         List<BoardResponseDto> boardResponseDtos = boardList.stream()
                 .map(BoardResponseDto::fromEntity)
                 .collect(Collectors.toList());
-
+        //boardResponseDtos 로 변환 이유: 사용자한테
         // 응답 객체 반환
         return boardResponseDtos;
     }
@@ -38,11 +38,11 @@ public class BoardServiceImpl implements BoardService {
 
         // 해당 데이터를 응답 객체로 변환
         BoardResponseDto boardResponseDto = board
-                .map(BoardResponseDto::fromEntity)
+                .map(BoardResponseDto::fromEntity) //<<이 코드는 board 객체를 BoardResponseDto로 변환하는코드
                 // 응답 객체로 변환 시 null값이 존재한다면 예외 발생
                 .orElseThrow(() -> new IllegalArgumentException("게시글을 찾을 수 없습니다."));
 
-        // 반환
+        // 변환 하는 이유가 사용자한테 id title author만 보여주는 형태로 만들려고인가
         return boardResponseDto;
     }
 
