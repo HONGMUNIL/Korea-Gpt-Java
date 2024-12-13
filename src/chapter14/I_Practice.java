@@ -7,10 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 //2. 직원 목록 필터링 & 정렬
@@ -62,5 +59,34 @@ public class I_Practice {
                 .filter(employee -> employee.getName().contains("조"))
                 .collect(Collectors.toList());
 
+
+
+
+        //4. 부서별 직원 그룹화
+        Map<String, List<Employee>> employeesByDept = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment));
+        System.out.println(employeesByDept);
+        //{Finacnce=[Employee(department=Finacnce, name=황영수, salary=4000.0)], HR=[Employee(department=HR,
+        // name=박정아, salary=7000.0), Employee(department=HR, name=한설빈, salary=6500.0)],
+        // IT=[Employee(department=IT, name=홍문일, salary=5000.0), Employee(department=IT, name=김현수, salary=9000.0)]}
+
+        //5. 부서별 평균 급여 계산
+        Map<String, Double> avgSalaryByDept = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.averagingDouble(Employee::getSalary)));
+
+  //      Map<String, Double> avgSalaryByDept2 = employees.stream()
+  //              .collect(Collectors.groupingBy(Employee::getDepartment,
+   //                     Collectors.averagingDouble(Employee::getSalary)));
+
+        System.out.println(avgSalaryByDept);
     }
 }
+
+
+
+
+
+
+
+

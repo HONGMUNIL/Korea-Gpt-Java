@@ -16,16 +16,12 @@ import java.util.stream.Collectors;
 @Getter
 @ToString
 @AllArgsConstructor
-class StudentsClass{
+class StudentsClass {
     private String name;
     private int age;
     private double grade;
 
 }
-
-
-
-
 
 
 public class H_Practice {
@@ -40,7 +36,7 @@ public class H_Practice {
         //1-1. 학점이 3.0 이상인 학생 필터링
 
         List<StudentsClass> filteredStudents = studentsClasses.stream()
-                .filter(students ->students.getGrade() >=3.0)
+                .filter(students -> students.getGrade() >= 3.0)
                 .collect(Collectors.toList());
         System.out.println("3.0 학생:");
         filteredStudents.forEach(System.out::println);
@@ -48,7 +44,7 @@ public class H_Practice {
         //1-2 학생 이름 목록만 추출
         List<String> studentNames = studentsClasses.stream()
                 .map(StudentsClass::getName) //밑의  map과 똑같다
-          //    .map(studentsClass -> studentsClass.getName())
+                //    .map(studentsClass -> studentsClass.getName())
                 .collect(Collectors.toList());
 
         System.out.println("학생이름 목록:");
@@ -57,7 +53,12 @@ public class H_Practice {
 
         //1-3 학생들을 점수순으로 정렬
         List<StudentsClass> sortedStudents = studentsClasses.stream()
+                // 컬렉션 프레임워크의 중간 연산: .sorted(정렬)
+                // Comparator 클래스의 .comparingDouble 정적 메서드 활용
+                // : 실수값들에 대한 비교
+                // StrudentClass::getGrade
                 .sorted(Comparator.comparingDouble(StudentsClass::getGrade))
+                // .sorted(Comparator.comparingDouble(StudentsClass::getGrade).reversed())  내림차순정렬
                 .collect(Collectors.toList());
 
         System.out.println("점수순으로 :");
@@ -68,7 +69,6 @@ public class H_Practice {
         //StudentsClass(name=홍문일, age=29, grade=4.3)
 
 
-
         //1-4 학생들 중 '지' 단어가 이름에 포함된 학생 필터링
         List<StudentsClass> studentsWithJi = studentsClasses.stream()
                 .filter(studentsClass -> studentsClass.getName().contains("문"))
@@ -77,8 +77,7 @@ public class H_Practice {
         studentsWithJi.forEach(System.out::println); //StudentsClass(name=홍문일, age=29, grade=4.3)
 
 
-
-   }
+    }
 
 }
 
