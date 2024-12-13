@@ -19,7 +19,7 @@ public class BoardResponseDto {
 
     public static BoardResponseDto fromEntity(Board board) {
         return new BoardResponseDto(board);
-    }
+    } //여기부터 ??
 
 
     public BoardResponseDto(Board board) {
