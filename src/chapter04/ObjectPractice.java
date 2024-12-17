@@ -33,7 +33,7 @@ public class ObjectPractice {
 
         System.out.println(c1.kind + c1.number);
 
-        //System.out.println(c1.width);
+        System.out.println(c1.width);
 
     }
 }
